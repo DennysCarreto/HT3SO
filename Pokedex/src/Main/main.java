@@ -25,25 +25,25 @@ public class main extends javax.swing.JFrame {
     public class Hilo extends Thread {
         Pokedex dexter = new Pokedex(); //Clase que conecte con la api
         
-       public Hilo(){
-           dexter = new Pokedex();
-       }
-       
-       @Override
-       public void run(){
-       Pokemon pokemon = new Pokemon();
-       try {
-            pokemon = dexter.buscarPokemon(txtBusqueda.getText());
-        } catch (IOException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+        public Hilo(){
+            dexter = new Pokedex();
         }
-        txtNumero.setText(pokemon.getId());
-        txtNombre.setText(pokemon.getName());
-        txtAltura.setText(String.valueOf(pokemon.getHeight()));
-        txtPeso.setText(String.valueOf(pokemon.getWeight()));
-       }
+       
+        @Override
+        public void run(){
+        Pokemon pokemon = new Pokemon();
+        try {
+             pokemon = dexter.buscarPokemon(txtBusqueda.getText());
+         } catch (IOException ex) {
+             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (InterruptedException ex) {
+             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         txtNumero.setText(pokemon.getId());
+         txtNombre.setText(pokemon.getName());
+         txtAltura.setText(String.valueOf(pokemon.getHeight()));
+         txtPeso.setText(String.valueOf(pokemon.getWeight()));
+        }
        
     }
 
@@ -121,7 +121,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -162,10 +162,11 @@ public class main extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,6 +227,7 @@ public class main extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //main.dispose(); // Cierra solo la ventana actual
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
