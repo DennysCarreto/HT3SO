@@ -15,7 +15,7 @@ import org.codehaus.jackson.map.ObjectMapper;
  *
  * @author dennys
  */
-public class Pokedex {
+public class Pokedex{
     private static final String POKEMON_API_URL = "https://pokeapi.co/api/v2/pokemon/";
     private String nombrePokemon;
     
